@@ -15,8 +15,11 @@ package frc.robot;
  */
 public class RobotMap {
   //remote values
+      
+     //controller USB ports
       public static final int DRIVER_CONTROLLER = 2;
 
+     //XBox controller values from driver station
       public static final int BUTTON_A = 1;
       public static final int BUTTON_B = 2;
       public static final int BUTTON_X = 3;
