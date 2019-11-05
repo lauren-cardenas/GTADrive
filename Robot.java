@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriverControls;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.commands.AutoCommand;
+import frc.robot.commands.DriveToDistanceCommand;
 //import frc.robot.commands.ExampleCommand;
 //import frc.robot.subsystems.ExampleSubsystem;
 
@@ -31,6 +33,8 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
   Command driverControls = new DriverControls();
+  Command autoCommand = new AutoCommand();
+  Command driveToDistanceCommand = new DriveToDistanceCommand(RobotMap.AUTO_DISTANCE,RobotMap.AUTO_SPEED);
 
   /**
    * This function is run when the robot is first started up and should be
@@ -85,6 +89,8 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autonomousCommand = m_chooser.getSelected();
 
+    autoCommand.start();
+    
     /*
      * String autoSelected = SmartDashboard.getString("Auto Selector",
      * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
