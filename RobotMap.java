@@ -15,10 +15,17 @@ package frc.robot;
  */
 public class RobotMap {
   //remote values
-      
+      //driving variables
+      public static final double TURNING_RATE = 0.7;
+     
+      //auto variables
+      public static final double AUTO_DISTANCE = 20;
+      public static final double AUTO_SPEED = 0.8;
+  
      //controller USB ports
       public static final int DRIVER_CONTROLLER = 2;
-
+      public static final int OPERATOR_CONTROLLER = 1;
+  
      //XBox controller values from driver station
       public static final int BUTTON_A = 1;
       public static final int BUTTON_B = 2;
@@ -45,10 +52,12 @@ public class RobotMap {
       public static final int RIGHT_FRONT_MOTOR = 1;
       public static final int RIGHT_REAR_MOTOR = 10;
 
-  //driving variables
-      public static final double TURNING_RATE = 0.7;
-
-
+  
+  //encoder ports
+      public static final int leftEnc1 = 0;
+      public static final int leftEnc2 = 1;
+      public static final int rightEnc1 = 2;
+      public static final int rightEnc2 = 3;
 
 
 
