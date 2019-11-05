@@ -31,8 +31,8 @@ public class DriverControls extends Command {
     double triggerVal = Robot.m_oi.getDriverRawAxis(RobotMap.RIGHT_TRIGGER) - Robot.m_oi.getDriverRawAxis(RobotMap.LEFT_TRIGGER);
     double stick = Utilities.scale(Robot.m_oi.getDriverRawAxis(RobotMap.LEFT_STICK_X), RobotMap.TURNING_RATE);
 
-    Robot.driveTrain.setLeftMotors(triggerVal + stick);
-    Robot.driveTrain.setRightMotors(triggerVal - stick);
+    Robot.driveTrain.setLeftMotors(triggerVal - stick);
+    Robot.driveTrain.setRightMotors(triggerVal + stick);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -44,14 +44,14 @@ public class DriverControls extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    
+    Robot.driveTrain.setLeftMotors(0); //ensures motors stop
+    Robot.driveTrain.setRightMotors(0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.driveTrain.setLeftMotors(0); //ensures motors stop
-    Robot.driveTrain.setRightMotors(0);
+    this.end();
   }
 }
